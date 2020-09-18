@@ -71,7 +71,7 @@ export default function App() {
           alignItems: "center"
         }}
       >
-        <Ticker offset="100%" move={move} speed={25}>
+        <Ticker offset="100%" move={move} speed={15 * 0.8}>
           {(index) => (
             <h3
               style={{
