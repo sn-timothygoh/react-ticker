@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./styles.css";
 
 import Ticker from "./ticker";
@@ -15,27 +15,16 @@ export default function App() {
 
   function seq(size) {
     let i = current;
-    setCurrent(++i);
-    if (i <= size) return i;
-    else {
-      setCurrent(-1);
-      return 0;
-    }
+    i === size ? setCurrent(0) : setCurrent(++i);
+    return current;
   }
 
   const [move] = useState(true);
 
   const quotes = [
-    "First line of text data",
-    "Second line of text data",
-    "Third line of text data",
-    "Forth line of text data",
-    "Fifth line of text data",
-    "Sixth line of text data",
-    "Seventh line of text data",
-    "Eighth line of text data",
-    "Nineth line of text data",
-    "Tenth line of text data"
+    "Breaking News #1: so short",
+    "Breaking News #2: This text is very loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong",
+    "Breaking News #3: Lorem ipsum dolor sit amet, consectetur adipiscing elit; xxxx; xxxx;"
   ];
 
   return (
@@ -47,6 +36,7 @@ export default function App() {
         padding: 0
       }}
     >
+      <h2>random number</h2>
       <div
         style={{
           background: "rgba(0, 0, 0, 0.3)",
@@ -71,6 +61,7 @@ export default function App() {
           )}
         </Ticker>
       </div>
+      <h2>sequence number</h2>
       <div
         style={{
           marginTop: "10px",
@@ -80,12 +71,12 @@ export default function App() {
           alignItems: "center"
         }}
       >
-        <Ticker offset="100%" move={move} speed={10}>
+        <Ticker offset="100%" move={move} speed={25}>
           {(index) => (
             <h3
               style={{
                 clear: "both",
-                display: "inline-block",
+                display: "block",
                 overflow: "hidden",
                 whiteSpace: "nowrap",
                 color: "#FFF"
